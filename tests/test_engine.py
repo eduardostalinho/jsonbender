@@ -1,0 +1,47 @@
+import unittest
+
+from jsonbender.engine import bend, K, S
+
+
+class TestK(unittest.TestCase):
+    def test_k(self):
+        self.assertEqual(K(1)({}), 1)
+        self.assertEqual(K('string')({}), 'string')
+
+
+class TestS(unittest.TestCase):
+    def test_no_selector_raises_value_error(self):
+        self.assertRaises(ValueError, S)
+
+    def test_single_existing_field(self):
+        self.assertEqual(S('a')({'a': 'val'}), 'val')
+
+    def test_deep_existing_path(self):
+        source = {'a': [{}, {'b': 'ok!'}]}
+        self.assertEqual(S('a', 1, 'b')(source), 'ok!')
+
+
+class TestBend(unittest.TestCase):
+    def test_empty_mapping(self):
+        self.assertDictEqual(bend({}, {'a': 1}), {})
+
+    def test_flat_mapping(self):
+        mapping = {
+            'a_field': S('a', 'b'),
+            'another_field': K('wow'),
+        }
+        source = {
+            'a': {
+                'b': 'ok',
+            },
+        }
+        expected = {
+            'a_field': 'ok',
+            'another_field': 'wow',
+        }
+        self.assertDictEqual(bend(mapping, source), expected)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
