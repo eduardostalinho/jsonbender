@@ -1,20 +1,41 @@
-def K(value):
-    def execute(source):
-        return value
-    return execute
+class Bender(object):
+    def __init__(self, *args, **kwargs):
+        raise NotImplementedError()
+
+    def __call__(self, source):
+        return self.execute(source)
+
+    def execute(self, source):
+        raise NotImplementedError()
 
 
-def S(*path):
-    if not path:
-        raise ValueError('No path given')
+class K(Bender):
+    def __init__(self, value):
+        self._val = value
 
-    def execute(source):
-        for key in path:
+    def execute(self, source):
+        return self._val
+
+
+class S(Bender):
+    def __init__(self, *path):
+        if not path:
+            raise ValueError('No path given')
+        self._path = path
+
+    def execute(self, source):
+        for key in self._path:
             source = source[key]
         return source
-    return execute
 
 
 def bend(mapping, source):
-    return {k: execute(source) for k, execute in mapping.iteritems()}
+    res = {}
+    for k, value in mapping.iteritems():
+        if isinstance(value, Bender):
+            newv = value(source)
+        else:
+            newv = bend(value, source)
+        res[k] = newv
+    return res
 
