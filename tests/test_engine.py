@@ -57,6 +57,21 @@ class TestBend(unittest.TestCase):
         self.assertDictEqual(bend(mapping, source), expected)
 
 
+class TestOperators(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual((S('v1') + K(2))({'v1': 5}), 7)
+
+    def test_sub(self):
+        self.assertEqual((S('v1') - K(2))({'v1': 5}), 3)
+
+    def test_mul(self):
+        self.assertEqual((S('v1') * K(2))({'v1': 5}), 10)
+
+    def test_div(self):
+        self.assertAlmostEqual((S('v1') / K(2))({'v1': 5}), 2.5, 2)
+
+
+
 if __name__ == '__main__':
     unittest.main()
 
