@@ -1,3 +1,6 @@
+from itertools import chain
+
+
 class Bender(object):
     def __init__(self, *args, **kwargs):
         raise NotImplementedError()
@@ -71,6 +74,39 @@ class S(Bender):
         for key in self._path:
             source = source[key]
         return source
+
+
+class ListOp(Bender):
+    def __init__(self, bender, function):
+        self._func = function
+        self._bender = bender
+
+    def op(self, func, vals):
+        raise NotImplementedError()
+
+    def execute(self, source):
+        return self.op(self._func, self._bender(source))
+
+
+class Forall(ListOp):
+    op = map
+
+
+class Reduce(ListOp):
+    def op(self, func, vals):
+        try:
+            return reduce(func, vals)
+        except TypeError as e:  # empty list with no initial value
+            raise ValueError(e.message)
+
+
+class Filter(ListOp):
+    op = filter
+
+
+class FlatForall(ListOp):
+    def op(self, func, vals):
+        return list(chain.from_iterable(map(func, vals)))
 
 
 def bend(mapping, source):
