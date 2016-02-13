@@ -1,6 +1,6 @@
 from itertools import chain
 
-from jsonbender.engine.core import Bender
+from jsonbender.core import Bender
 
 
 class ListOp(Bender):

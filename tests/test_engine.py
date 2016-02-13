@@ -1,6 +1,6 @@
 import unittest
 
-from jsonbender.engine import bend, Forall, FlatForall, Filter, Reduce, K, S
+from jsonbender import bend, Forall, FlatForall, Filter, Reduce, K, S
 
 
 class TestK(unittest.TestCase):

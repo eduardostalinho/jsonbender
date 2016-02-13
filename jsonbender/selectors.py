@@ -1,4 +1,4 @@
-from jsonbender.engine.core import Bender
+from jsonbender.core import Bender
 
 
 class K(Bender):
