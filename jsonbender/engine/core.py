@@ -1,4 +1,16 @@
 class Bender(object):
+
+    """
+    Base bending class. All selectors and transformations should directly or
+    indirectly derive from this. Should not be instantiated.
+
+    Whenever a bender is activated (by the bend() function), the execute()
+    method is called with the source as it's single argument.
+    All bending logic should be there.
+
+    Subclasses must implement __init__() and execute() methods.
+    """
+
     def __init__(self, *args, **kwargs):
         raise NotImplementedError()
 
@@ -22,6 +34,18 @@ class Bender(object):
 
 
 class BinaryOperator(Bender):
+
+    """
+    Base class for binary bending operators. Should not be directly
+    instantiated.
+
+    Whenever a bin op is activated, the op() method is called with both
+    *values* (that is, the benders are implicitly activated).
+
+    Subclasses must implement the op() method, which takes two values and
+    should return the desired result.
+    """
+
     def __init__(self, bender1, bender2):
         self._bender1 = bender1
         self._bender2 = bender2
@@ -54,6 +78,14 @@ class Div(BinaryOperator):
 
 
 def bend(mapping, source):
+    """
+    The main bending function.
+
+    mapping: the map of benders
+    source: a dict to be bent
+
+    returns a new dict according to the provided map.
+    """
     res = {}
     for k, value in mapping.iteritems():
         if isinstance(value, Bender):
