@@ -1,62 +1,64 @@
 import unittest
 
-from jsonbender import bend, S, Forall, FlatForall, Filter, Reduce
+from jsonbender import K
+from jsonbender.list_ops import Forall, FlatForall, Filter, ListOp, Reduce
 
 
-class TestForall(unittest.TestCase):
+class ListOpTestCase(unittest.TestCase):
+    cls = ListOp
+
+    def assert_list_op(self, the_list, func, expected_value):
+        bender = self.cls(K(the_list), func)
+        self.assertEqual(bender({}), expected_value)
+
+
+class TestForall(ListOpTestCase):
+    cls = Forall
+
     def test_empty_list(self):
-        mapping = {'a': Forall(S('b'), lambda i: i*2)}
-        source = {'b': []}
-        self.assertDictEqual(bend(mapping, source), {'a': []})
+        self.assert_list_op([], lambda i: i*2, [])
 
     def test_nonempty_list(self):
-        mapping = {'a': Forall(S('b'), lambda i: i*2)}
-        source = {'b': range(1, 5)}
-        self.assertDictEqual(bend(mapping, source), {'a': [2, 4, 6, 8]})
+        self.assert_list_op(range(1, 5), lambda i: i*2, [2, 4, 6, 8])
 
 
-class TestReduce(unittest.TestCase):
+class TestReduce(ListOpTestCase):
+    cls = Reduce
+
     def test_empty_list(self):
-        mapping = {'a': Reduce(S('b'), lambda acc, i: acc + i)}
-        source = {'b': []}
-        self.assertRaises(ValueError, bend, mapping, source)
+        bender = Reduce(K([]), lambda acc, i: acc + i)
+        self.assertRaises(ValueError, bender, {})
 
     def test_nonempty_list(self):
-        mapping = {'a': Reduce(S('b'), lambda acc, i: acc + i)}
-        source = {'b': range(1, 5)}
-        self.assertDictEqual(bend(mapping, source), {'a': 10})
+        self.assert_list_op(range(1, 5), lambda acc, i: acc + i, 10)
 
 
-class TestFilter(unittest.TestCase):
+class TestFilter(ListOpTestCase):
+    cls = Filter
+
     def test_empty_list(self):
-        mapping = {'a': Filter(S('b'), lambda d: not d['ignore'])}
-        source = {'b': []}
-        self.assertDictEqual(bend(mapping, source), {'a': []})
+        self.assert_list_op([], lambda d: not d['ignore'], [])
 
     def test_nonempty_list(self):
-        mapping = {'a': Filter(S('b'), lambda d: not d['ignore'])}
-        source = {'b': [{'id': 1, 'ignore': True},
-                        {'id': 2, 'ignore': False},
-                        {'id': 3, 'ignore': False},
-                        {'id': 4, 'ignore': True}]}
+        the_list = [{'id': 1, 'ignore': True},
+                    {'id': 2, 'ignore': False},
+                    {'id': 3, 'ignore': False},
+                    {'id': 4, 'ignore': True}]
 
-        self.assertDictEqual(bend(mapping, source),
-                             {'a': [{'id': 2, 'ignore': False},
-                                    {'id': 3, 'ignore': False}]})
+        expected = [{'id': 2, 'ignore': False}, {'id': 3, 'ignore': False}]
+        self.assert_list_op(the_list, lambda d: not d['ignore'], expected)
 
 
-class TestFlatForall(unittest.TestCase):
+class TestFlatForall(ListOpTestCase):
+    cls = FlatForall
+
     def test_empty_list(self):
-        mapping = {'a': FlatForall(S('bs'), lambda d: d['b'])}
-        source = {'bs': []}
-        self.assertDictEqual(bend(mapping, source), {'a': []})
+        self.assert_list_op([], lambda d: d['b'], [])
 
     def test_nonempty_list(self):
-        mapping = {'a': FlatForall(S('bs'), lambda d: d['b'])}
-        source = {
-            'bs': [{'b': [1, 2]}, {'b': [-2, -1]}]
-        }
-        self.assertDictEqual(bend(mapping, source), {'a': [1, 2, -2, -1]})
+        self.assert_list_op([{'b': [1, 2]}, {'b': [-2, -1]}],
+                            lambda d: d['b'],
+                            [1, 2, -2, -1])
 
 
 if __name__ == '__main__':
