@@ -28,3 +28,13 @@ class S(Bender):
             source = source[key]
         return source
 
+
+class F(Bender):
+    def __init__(self, func, *args, **kwargs):
+        self._func = func
+        self._args = args
+        self._kwargs = kwargs
+
+    def execute(self, value):
+        return self._func(value, *self._args, **self._kwargs)
+
