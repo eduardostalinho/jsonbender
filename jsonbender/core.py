@@ -32,6 +32,21 @@ class Bender(object):
     def __div__(self, other):
         return Div(self, other)
 
+    def __rshift__(self, other):
+        return Compose(self, other)
+
+    def __lshift__(self, other):
+        return Compose(other, self)
+
+
+class Compose(Bender):
+    def __init__(self, first, second):
+        self._first = first
+        self._second = second
+
+    def execute(self, source):
+        return self._second(self._first(source))
+
 
 class BinaryOperator(Bender):
 
