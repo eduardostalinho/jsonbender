@@ -1,6 +1,6 @@
 import unittest
 
-from jsonbender import bend, S, K
+from jsonbender import bend, BendingException, S, K
 
 
 class TestBend(unittest.TestCase):
@@ -37,6 +37,11 @@ class TestBend(unittest.TestCase):
             'a': {'nested': {'field': 'hi'}},
         }
         self.assertDictEqual(bend(mapping, source), expected)
+
+    def test_bending_exception_is_raised_when_something_bad_happens(self):
+        mapping = {'a': S('nonexistant')}
+        source = {}
+        self.assertRaises(BendingException, bend, mapping, source)
 
 
 class TestOperators(unittest.TestCase):

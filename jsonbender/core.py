@@ -92,6 +92,10 @@ class Div(BinaryOperator):
         return float(v1) / float(v2)
 
 
+class BendingException(Exception):
+    pass
+
+
 def bend(mapping, source):
     """
     The main bending function.
@@ -104,7 +108,11 @@ def bend(mapping, source):
     res = {}
     for k, value in mapping.iteritems():
         if isinstance(value, Bender):
-            newv = value(source)
+            try:
+                newv = value(source)
+            except Exception as e:
+                m = 'Error for key {}: {}'.format(k, str(e))
+                raise BendingException(m)
         else:
             newv = bend(value, source)
         res[k] = newv
