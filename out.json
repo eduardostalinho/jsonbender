@@ -1,0 +1,82 @@
+{
+    "siteId":1,
+    "PromiseDateTime":"2016-02-12T21:55:00",
+    "OrderMode":1,
+    "PaymentMode":1,
+    "Customer": {
+        "Email":"taliberti@onyo.com",
+        "FirstName": "Fernando",
+        "LastName": "Taliberti"
+    },
+    "LineItems": [
+    {
+      "ItemLineNumber": 1,
+      "SalesItemId": 2007,
+      "MenuItemId": 1007,
+      "Modifiers": [
+        {
+          "SequenceNumber": 0,
+          "ItemOptionGroupId": 8002,
+          "SalesItemOptionId": 2243,
+          "Action": 0,
+          "DefaultAction": 0,
+          "ItemLineNumber": 0,
+          "ParentSequenceNumber": 0,
+          "Quantity": 1,
+          "IsOnEntireItem": null,
+          "IsOnSection1": null,
+          "IsOnSection2": null,
+          "IsOnSection3": null,
+          "IsOnSection4": null,
+          "FreeQuantity": 0,
+          "Modifiers": null
+        },
+        {
+          "SequenceNumber": 0,
+          "ItemOptionGroupId": 8003,
+          "SalesItemOptionId": 2245,
+          "Action": 0,
+          "DefaultAction": 0,
+          "ItemLineNumber": 0,
+          "ParentSequenceNumber": 0,
+          "Quantity": 1,
+          "IsOnEntireItem": null,
+          "IsOnSection1": null,
+          "IsOnSection2": null,
+          "IsOnSection3": null,
+          "IsOnSection4": null,
+          "FreeQuantity": 0,
+          "Modifiers": null
+        }
+        
+      ]
+    },
+    {
+      "ItemLineNumber": 2,
+      "SalesItemId": 2025,
+      "MenuItemId": 1025,
+      "Modifiers": [
+        {
+          "SequenceNumber": 0,
+          "ItemOptionGroupId": 8001,
+          "SalesItemOptionId": 2240,
+          "Action": 0,
+          "DefaultAction": 0,
+          "ItemLineNumber": 0,
+          "ParentSequenceNumber": 0,
+          "Quantity": 1,
+          "IsOnEntireItem": null,
+          "IsOnSection1": null,
+          "IsOnSection2": null,
+          "IsOnSection3": null,
+          "IsOnSection4": null,
+          "FreeQuantity": 0,
+          "Modifiers": null
+        }
+        
+      ]
+    }
+  ],    
+"SpecialInstructions": "Id: 345 CPF:08602363745 Pgto: Credito Online - Visa"
+    
+}

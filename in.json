@@ -1,0 +1,297 @@
+{
+  "pagination": {
+    "next": null,
+    "total": 1,
+    "page": 1,
+    "previous": null
+  },
+  "data": [
+    {
+      "id": 345,
+      "creation_datetime": "2016-02-12T16:43:44.397Z",
+      "customer_document": "08602363745",
+      "status": 2,
+      "pos_reference": "aloha@siteId@1",
+      "printed": false,
+      "total_value": 28.0,
+      "service_charge_value": null,
+      "discount_value": null,
+      "payable_value": 28.0,
+      "items": [
+          {
+          "pos_reference": "aloha@modifier@2240",
+          "quantity": "1.000",
+          "unit_price": null,
+          "unit_pos_price": null,
+          "unit_points": 0,
+          "order_in_order": 10,
+          "parent_order_in_order": 9,
+          "discount": 0,
+          "addition": 0,
+          "product_type": null,
+          "prepare_rightaway": true,
+          "pos_name": null,
+          "description": null,
+          "order_id": 345,
+          "redeem_id": null,
+          "base_unit_pos_price": null,
+          "base_unit_price": null,
+          "product": {
+            "id": 13944,
+            "name": "Com Açucar",
+            "image": []
+          }
+        },
+        {
+          "pos_reference": "aloha@modifiergroup@8001",
+          "quantity": "1.000",
+          "unit_price": null,
+          "unit_pos_price": null,
+          "unit_points": 0,
+          "order_in_order": 9,
+          "parent_order_in_order": 8,
+          "discount": 0,
+          "addition": 0,
+          "product_type": null,
+          "prepare_rightaway": true,
+          "pos_name": null,
+          "description": null,
+          "order_id": 345,
+          "redeem_id": null,
+          "base_unit_pos_price": null,
+          "base_unit_price": null,
+          "product": {
+            "id": 13923,
+            "name": "Com/Sem Açucar",
+            "image": []
+          }
+        },
+        {
+          "pos_reference": "aloha@salesItem@2025",
+          "quantity": "1.000",
+          "unit_price": 8,
+          "unit_pos_price": 8,
+          "unit_points": 0,
+          "order_in_order": 8,
+          "parent_order_in_order": 7,
+          "discount": 0,
+          "addition": 0,
+          "product_type": null,
+          "prepare_rightaway": true,
+          "pos_name": null,
+          "description": null,
+          "order_id": 345,
+          "redeem_id": null,
+          "base_unit_pos_price": null,
+          "base_unit_price": null,
+          "product": {
+            "id": 2680,
+            "name": "Suco Verão (400 ml)",
+            "image": []
+          }
+        },
+        {
+          "pos_reference": "aloha@menuItem@1025",
+          "quantity": "1.000",
+          "unit_price": null,
+          "unit_pos_price": "0",
+          "unit_points": 0,
+          "order_in_order": 7,
+          "parent_order_in_order": null,
+          "discount": 0,
+          "addition": 0,
+          "product_type": null,
+          "prepare_rightaway": true,
+          "pos_name": null,
+          "description": null,
+          "order_id": 345,
+          "redeem_id": null,
+          "base_unit_pos_price": null,
+          "base_unit_price": null,
+          "product": {
+            "id": 2679,
+            "name": "SUCO VERAO 400ML",
+            "image": [ ]
+          }
+        },
+        {
+          "pos_reference": "aloha@modifier@2245",
+          "quantity": "1.000",
+          "unit_price": null,
+          "unit_pos_price": null,
+          "unit_points": 0,
+          "order_in_order": 6,
+          "parent_order_in_order": 5,
+          "discount": 0,
+          "addition": 0,
+          "product_type": null,
+          "prepare_rightaway": true,
+          "pos_name": null,
+          "description": null,
+          "order_id": 345,
+          "redeem_id": null,
+          "base_unit_pos_price": null,
+          "base_unit_price": null,
+          "product": {
+            "id": 13944,
+            "name": "Com Orégano",
+            "image": []
+          }
+        },        {
+          "pos_reference": "aloha@modifiergroup@8003",
+          "quantity": "1.000",
+          "unit_price": null,
+          "unit_pos_price": null,
+          "unit_points": 0,
+          "order_in_order": 5,
+          "parent_order_in_order": 2,
+          "discount": 0,
+          "addition": 0,
+          "product_type": null,
+          "prepare_rightaway": true,
+          "pos_name": null,
+          "description": null,
+          "order_id": 345,
+          "redeem_id": null,
+          "base_unit_pos_price": null,
+          "base_unit_price": null,
+          "product": {
+            "id": 13923,
+            "name": "Com/Sem Orégano",
+            "image": []
+          }
+        },
+        {
+          "pos_reference": "aloha@modifier@2243",
+          "quantity": "1.000",
+          "unit_price": null,
+          "unit_pos_price": null,
+          "unit_points": 0,
+          "order_in_order": 4,
+          "parent_order_in_order": 3,
+          "discount": 0,
+          "addition": 0,
+          "product_type": null,
+          "prepare_rightaway": true,
+          "pos_name": null,
+          "description": null,
+          "order_id": 345,
+          "redeem_id": null,
+          "base_unit_pos_price": null,
+          "base_unit_price": null,
+          "product": {
+            "id": 13943,
+            "name": "Com Tomate",
+            "image": []
+          }
+        },        {
+          "pos_reference": "aloha@modifiergroup@8002",
+          "quantity": "1.000",
+          "unit_price": null,
+          "unit_pos_price": null,
+          "unit_points": 0,
+          "order_in_order": 3,
+          "parent_order_in_order": 2,
+          "discount": 0,
+          "addition": 0,
+          "product_type": null,
+          "prepare_rightaway": true,
+          "pos_name": null,
+          "description": null,
+          "order_id": 345,
+          "redeem_id": null,
+          "base_unit_pos_price": null,
+          "base_unit_price": null,
+          "product": {
+            "id": 1395,
+            "name": "Com/Sem Tomate",
+            "image": []
+          }
+        },
+        {
+          "pos_reference": "aloha@salesItem@2007",
+          "quantity": "1.000",
+          "unit_price": 20,
+          "unit_pos_price": 20,
+          "unit_points": 0,
+          "order_in_order": 2,
+          "parent_order_in_order": 1,
+          "discount": 0,
+          "addition": 0,
+          "product_type": null,
+          "prepare_rightaway": true,
+          "pos_name": null,
+          "description": null,
+          "order_id": 345,
+          "redeem_id": null,
+          "base_unit_pos_price": null,
+          "base_unit_price": null,
+          "product": {
+            "id": 2680,
+            "name": "Beirute de Rosbife",
+            "image": []
+          }
+        },
+        {
+          "pos_reference": "aloha@menuItem@1007",
+          "quantity": "1.000",
+          "unit_price": null,
+          "unit_pos_price": "0",
+          "unit_points": 0,
+          "order_in_order": 1,
+          "parent_order_in_order": null,
+          "discount": 0,
+          "addition": 0,
+          "product_type": null,
+          "prepare_rightaway": true,
+          "pos_name": null,
+          "description": null,
+          "order_id": 345,
+          "redeem_id": null,
+          "base_unit_pos_price": null,
+          "base_unit_price": null,
+          "product": {
+            "id": 2679,
+            "name": "BEIRUTE ROSBIFE",
+            "image": []
+          }
+        }
+      ],
+      "customer": {
+        "id": 13,
+        "name": "Fernando Taliberti",
+        "document": "08602363745"
+      },
+      "redeem": false,
+      "payments": [
+        {
+          "numerical_id": 557,
+          "status": "authorized",
+          "value": "28.00",
+          "acquirer_return": null,
+          "payment_method": "credit",
+          "acquirer": {
+            "id": 3,
+            "name": "Rede",
+            "pos_reference": ""
+          },
+          "card": {
+            "printed_name": "Fernando Taliberti",
+            "masked_number": "1876",
+            "card_brand": {
+              "id": 8,
+              "name": "Visa",
+              "code": "visa",
+              "pos_reference": "2189"
+            }
+          },
+          "transaction_code": "TESTPAY557",
+          "transaction_date": "2016-02-12 16:44:40"
+        }
+      ],
+      "sequence_number": null,
+      "display_code": null,
+      "order_type": 1
+    }
+  ]
+}
