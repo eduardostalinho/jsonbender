@@ -1,3 +1,6 @@
+from functools import partial
+
+
 class Bender(object):
 
     """
@@ -113,6 +116,8 @@ def bend(mapping, source):
             except Exception as e:
                 m = 'Error for key {}: {}'.format(k, str(e))
                 raise BendingException(m)
+        elif isinstance(value, list):
+            newv = map(lambda v: bend(v, source), value)
         else:
             newv = bend(value, source)
         res[k] = newv

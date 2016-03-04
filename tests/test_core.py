@@ -38,6 +38,25 @@ class TestBend(unittest.TestCase):
         }
         self.assertDictEqual(bend(mapping, source), expected)
 
+    def test_nested_mapping_with_lists(self):
+        mapping = {
+            'a_field': S('a', 'b'),
+            'a': [{
+                'nested': {
+                    'field': S('f1', 'f2'),
+                },
+            }],
+        }
+        source = {
+            'a': {'b': 'ok'},
+            'f1': {'f2': 'hi'},
+        }
+        expected = {
+            'a_field': 'ok',
+            'a': [{'nested': {'field': 'hi'}}],
+        }
+        self.assertDictEqual(bend(mapping, source), expected)
+
     def test_bending_exception_is_raised_when_something_bad_happens(self):
         mapping = {'a': S('nonexistant')}
         source = {}
