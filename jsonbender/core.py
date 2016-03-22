@@ -41,6 +41,17 @@ class Bender(object):
     def __lshift__(self, other):
         return Compose(other, self)
 
+    def __getitem__(self, index):
+        return self >> GetItem(index)
+
+
+class GetItem(Bender):
+    def __init__(self, index):
+        self._index = index
+
+    def execute(self, value):
+        return value[self._index]
+
 
 class Compose(Bender):
     def __init__(self, first, second):

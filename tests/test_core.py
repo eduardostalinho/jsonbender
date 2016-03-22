@@ -77,5 +77,11 @@ class TestOperators(unittest.TestCase):
         self.assertAlmostEqual((S('v1') / K(2))({'v1': 5}), 2.5, 2)
 
 
+class TestGetItem(unittest.TestCase):
+    def test_getitem(self):
+        bender = S('val')[2:8:2]
+        self.assertEqual(bender({'val': range(10)}), [2, 4, 6])
+
+
 if __name__ == '__main__':
     unittest.main()
