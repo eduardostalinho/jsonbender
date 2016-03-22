@@ -1,10 +1,11 @@
-from distutils.core import setup
+from setuptools import setup, find_packages
+from jsonbender import __version__
 
 
 setup(
     name='JSONBender',
-    version='0.2',
+    version=__version__,
     description='Library for transforming dicts.',
-    packages=['jsonbender'],
+    packages=find_packages(),
 )
 
