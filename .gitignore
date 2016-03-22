@@ -3,3 +3,6 @@
 __pycache__
 .cache
 build
+dist/
+MANIFEST
+*.egg-info
