@@ -1,5 +1,7 @@
 from functools import partial
 
+from jsonbender._compat import iteritems
+
 
 class Bender(object):
 
@@ -120,7 +122,7 @@ def bend(mapping, source):
     returns a new dict according to the provided map.
     """
     res = {}
-    for k, value in mapping.iteritems():
+    for k, value in iteritems(mapping):
         if isinstance(value, Bender):
             try:
                 newv = value(source)
